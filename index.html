@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/bookblock.css">
+    <link rel="stylesheet" type="text/css" href="./css/demo1.css">
+    <script src="./js/modernizr.custom.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+<div class="main clearfix">
+    <div class="bb-custom-wrapper">
+        <div id="bb-bookblock" class="bb-bookblock">
+            <div class="bb-item">
+                <img src="" alt="">
+                <p>test</p>
+            </div>
+            <div class="bb-item">
+                <img src="" alt="">
+                <p>page2</p>
+            </div>
+        </div>
+        <nav>
+            <a id="bb-nav-first" class="bb-custom-icon bb-custom-icon-first"><i class="bi bi-skip-start-fill"></i>最初</a>
+            <a id="bb-nav-prev" class="bb-custom-icon bb-custom-icon-arrow-left"><i class="bi bi-caret-left-fill"></i>前</a>
+            <a id="bb-nav-next" class="bb-custom-icon bb-custom-icon-arrow-right"><i class="bi bi-caret-right-fill"></i>次</a>
+            <a id="bb-nav-last" class="bb-custom-icon bb-custom-icon-last"><i class="bi bi-skip-end-fill"></i>最後</a>
+        </nav>
+    </div>
+</div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./js/jquerypp.custom.js"></script>
+    <script src="./js/bookblock.min.js"></script>
+    <script>
+        var Page = (function () {
+
+            var config = {
+                $bookBlock: $('#bb-bookblock'),
+                $navNext: $('#bb-nav-next'),
+                $navPrev: $('#bb-nav-prev'),
+                $navFirst: $('#bb-nav-first'),
+                $navLast: $('#bb-nav-last')
+            },
+                init = function () {
+                    config.$bookBlock.bookblock({
+                        speed: 800, //ページめくりのスピード
+                        shadowSides: 0.8, //シャドウの不透明度
+                        shadowFlip: 0.7 //反転しているページのシャドウの不透明度
+                    });
+                    initEvents();
+                },
+                initEvents = function () {
+
+                    var $slides = config.$bookBlock.children();
+
+                    // add navigation events
+                    config.$navNext.on('click touchstart', function () {
+                        config.$bookBlock.bookblock('next');
+                        return false;
+                    });
+
+                    config.$navPrev.on('click touchstart', function () {
+                        config.$bookBlock.bookblock('prev');
+                        return false;
+                    });
+
+                    config.$navFirst.on('click touchstart', function () {
+                        config.$bookBlock.bookblock('first');
+                        return false;
+                    });
+
+                    config.$navLast.on('click touchstart', function () {
+                        config.$bookBlock.bookblock('last');
+                        return false;
+                    });
+
+                    // add swipe events
+                    $slides.on({
+                        'swipeleft': function (event) {
+                            config.$bookBlock.bookblock('next');
+                            return false;
+                        },
+                        'swiperight': function (event) {
+                            config.$bookBlock.bookblock('prev');
+                            return false;
+                        }
+                    });
+
+                    // add keyboard events
+                    $(document).keydown(function (e) {
+                        var keyCode = e.keyCode || e.which,
+                            arrow = {
+                                left: 37,
+                                up: 38,
+                                right: 39,
+                                down: 40
+                            };
+
+                        switch (keyCode) {
+                            case arrow.left:
+                                config.$bookBlock.bookblock('prev');
+                                break;
+                            case arrow.right:
+                                config.$bookBlock.bookblock('next');
+                                break;
+                        }
+                    });
+                };
+
+            return { init: init };
+
+        })();
+    </script>
+    <script>
+        Page.init();
+    </script>
+</body>
+
+</html>
