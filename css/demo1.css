@@ -66,7 +66,7 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-/* .bb-custom-icon-first:before,
+.bb-custom-icon-first:before,
 .bb-custom-icon-last:before {
 	content: "\e002";
 }
@@ -75,7 +75,7 @@
 .bb-custom-icon-arrow-right:before {
 	content: "\e003";
 
-} */
+}
 
 .bb-custom-icon-arrow-left:before,
 .bb-custom-icon-first:before {
