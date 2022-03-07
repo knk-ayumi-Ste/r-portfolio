@@ -13,6 +13,9 @@ body {
     background-color: powderblue;
 }
 
+.container {
+    flex-direction: column;
+}
 /* main */
 .main {
     position: relative;
