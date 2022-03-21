@@ -1,10 +1,11 @@
 @p_w: 36vw; //ページwidth値
 @p_h: (@p_w * 0.75); //ページheight値
-@p_c: #fff; //ページカラー
+@p_c: #9ddcdc; //ページカラー
 @p_r: 4px; //border-radius 角の丸み
 @p_f: 1.4s; //速度
 @p_d: 20%; //暗さ？
-@bg: mix(#fff, desaturate(#e9cb8f, 50%), 50%); //backgroundのミックスイン
+// @bg: mix(#fff, desaturate(#e9cb8f, 50%), 50%); //色を混ぜる
+@bg:#fff4e1;
 
 .book {
   transition: opacity 0.4s 0.2s; //ふわっとする
@@ -53,6 +54,7 @@
     top: 0;
     width: @p_w;
     height: @p_h;
+    background-color: @p_c;
     transform-origin: 0 0; //座標変換の原点
     transition: transform @p_f; //プロパティ名　速度
     backface-visibility: hidden;
@@ -189,19 +191,16 @@ body {
 }
 
 .page:nth-child(1) {
-  background-image: url(./img/05.jpg);
+  // background-image: url(./img/05.jpg);
 }
 .page:nth-child(2),
 .page:nth-child(3) {
-  background-image: url("http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_end_01.jpg");
 }
 .page:nth-child(4),
 .page:nth-child(5) {
-  background-image: url("http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00000.jpg");
 }
 .page:nth-child(6),
 .page:nth-child(7) {
-  background-image: url("http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00001.jpg");
 }
 .page:nth-child(8),
 .page:nth-child(9) {
@@ -253,4 +252,42 @@ body {
 }
 .page:nth-child(32) {
   background-image: url("http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_cover_b.jpg");
+}
+
+// .index {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   position: relative;
+//   padding: 30px 0 30px 33px;
+//   width: 250px;
+//   color: #333;
+//   font-size: 18px;
+//   font-weight: 700;
+//   text-decoration: none;
+// }
+// .index::before {
+//   content: '';
+//   transform: rotate(45deg);
+//   width: 8px;
+//   height: 8px;
+//   border-top: 3px solid #2b550e;
+//   border-right: 3px solid #2b550e;
+// }
+// .index::after {
+//   content: '';
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   transform: translateY(-50%);
+//   width: 80px;
+//   height: 80px;
+//   background-color: rgba(0 0 0 0);
+//   border: 2px solid #90be70;
+//   border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+// }
+
+.skill img{
+  width: auto;
+  height: 30px;
 }
