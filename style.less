@@ -1,11 +1,11 @@
 @p_w: 36vw; //ページwidth値
 @p_h: (@p_w * 0.75); //ページheight値
-@p_c: #9ddcdc; //ページカラー
+@p_c: #fff4e1; //ページカラー
 @p_r: 4px; //border-radius 角の丸み
 @p_f: 1.4s; //速度
 @p_d: 20%; //暗さ？
-// @bg: mix(#fff, desaturate(#e9cb8f, 50%), 50%); //色を混ぜる
-@bg:#fff4e1;
+@bg: mix(#fff, desaturate(#9ddcdc, 0%), 15%); //色を混ぜる
+@l_c: #e67a7a; //リンクカラー
 
 .book {
   transition: opacity 0.4s 0.2s; //ふわっとする
@@ -150,6 +150,7 @@
 html,
 body {
   background: @bg;
+  opacity: ;
   -webkit-tap-highlight-color: fadeout(#000, 100%);
 }
 
@@ -168,7 +169,7 @@ body {
 
 // These Pages
 .page {
-  color: #fff; //文字色
+  color: #757575; //文字色
   background: left top no-repeat;
   background-size: cover; //できるだけ画面いっぱい
 }
@@ -290,4 +291,11 @@ body {
 .skill img{
   width: auto;
   height: 30px;
+}
+
+#link {
+  color: @p_c;
+  background: @l_c;
+  border-radius: 100vh;
+  text-decoration: none;
 }
