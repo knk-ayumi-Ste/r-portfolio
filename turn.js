@@ -27,14 +27,14 @@ $(window).on('load',function() { //ページを読み込んだら
  $('.page').on('mousedown', function(e) { //マウスを押したとき、eはクリックした要素・キーの情報取得
  var page = $(this); //thisはイベント発生元の要素を取得
  var page_num = pages.index(page) + 1; //クリックされたページを取得+1
- var page_w = page.outerWidth(); //ブラウザ全体の幅
+ var page_w = page.outerWidth(); //ブラウザ(ページ?)全体の幅
  var page_l = page.offset().left; //画面上の位置座標、左から
  var grabbed = ''; //
  var mouseX = e.pageX; //クリックされた場所の水平位置
- if (page_num % 2 === 0) {
- grabbed = 'verso';
- var other_page = page.prev();
- var centerX = (page_l + page_w);
+ if (page_num % 2 === 0) { //偶数(左)ページ
+ grabbed = 'verso'; //裏側
+ var other_page = page.prev(); 
+ var centerX = (page_l + page_w); //画面の左から本の中心線まで
  } else {
  grabbed = 'recto';
  var other_page = page.next();
