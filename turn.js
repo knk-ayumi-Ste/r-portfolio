@@ -10,7 +10,7 @@ pages.each(function(i) { //iは0からスタート、繰り返し処理
 
 // ページめくり
 $(window).on('load',function() { //ページを読み込んだら
- 
+//14～24さえあれば動く
  $('.page').click(function() { //ページをクリック
  var page = $(this);
  var page_num = pages.index(page) + 1;
@@ -25,46 +25,42 @@ $(window).on('load',function() { //ページを読み込んだら
 
  if (grabs) {
  $('.page').on('mousedown', function(e) { //マウスを押したとき、eはクリックした要素・キーの情報取得
+//なくても動く29～43
  var page = $(this); //thisはイベント発生元の要素を取得
  var page_num = pages.index(page) + 1; //クリックされたページを取得+1
  var page_w = page.outerWidth(); //ブラウザ(ページ?)全体の幅
  var page_l = page.offset().left; //画面上の位置座標、左から
  var grabbed = ''; //
- var mouseX = e.pageX; //クリックされた場所の水平位置
+ var mouseX = e.pageX; //クリックされた場所の横方向
  if (page_num % 2 === 0) { //偶数(左)ページ
- grabbed = 'verso'; //裏側
+ grabbed = 'verso'; //左ページ
  var other_page = page.prev(); 
  var centerX = (page_l + page_w); //画面の左から本の中心線まで
  } else {
- grabbed = 'recto';
+ grabbed = 'recto'; //右ページ
  var other_page = page.next();
  var centerX = page_l;
  }
 
  var leaf = page.add(other_page);
-
- var from_spine = mouseX - centerX;
-
- if (grabbed === 'recto') {
- var deg = (90 * -(1 - (from_spine/page_w)));
+ var from_spine = mouseX - centerX; //クリックされた位置 - ページ左から中央までの距離(左ならマイナス、右ならプラス)
+ if (grabbed === 'recto') { //右ページをクリック
+ var deg = (90 * -(1 - (from_spine/page_w))); 
  page.css('transform', 'rotateY(' + deg + 'deg)');
-
- } else {
+ } else { //左ページをクリック
  var deg = (90 * (1 + (from_spine/page_w)));
  page.css('transform', 'rotateY(' + deg + 'deg)');
  }
-
  leaf.addClass('grabbing');
-
- $(window).on('mousemove', function(e) {
- mouseX = e.pageX;
- if (grabbed === 'recto') {
+ $(window).on('mousemove', function(e) { //カーソルが動いたら
+ mouseX = e.pageX; 
+ if (grabbed === 'recto') { //右ページをクリック
  centerX = page_l;
  from_spine = mouseX - centerX;
  var deg = (90 * -(1 - (from_spine/page_w)));
  page.css('transform', 'rotateY(' + deg + 'deg)');
  other_page.css('transform', 'rotateY(' + (180 + deg) + 'deg)');
- } else {
+ } else { //左ページをクリック
  centerX = (page_l + page_w);
  from_spine = mouseX - centerX;
  var deg = (90 * (1 + (from_spine/page_w)));
@@ -74,7 +70,6 @@ $(window).on('load',function() { //ページを読み込んだら
 
  console.log(deg, (180 + deg) );
  });
-
 
  $(window).on('mouseup', function(e) {
  leaf
@@ -88,4 +83,3 @@ $(window).on('load',function() { //ページを読み込んだら
  
  $('.book').addClass('bound');
 });
- 
