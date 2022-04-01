@@ -1,4 +1,4 @@
-@p_w: 36vw; //ページwidth値
+@p_w: 500px; //ページwidth値
 @p_h: (@p_w * 0.75); //ページheight値
 @p_c: #fff4e1; //ページカラー
 @p_r: 4px; //border-radius 角の丸み
@@ -50,6 +50,7 @@
     float: none; //要素は浮動しない
     clear: none; //要素は先行する浮動要素と切り離されず、下に移動しません
     margin: 0;
+    padding: 15px;
     position: absolute; //親要素に対して相対配置
     top: 0;
     width: @p_w;
@@ -242,3 +243,25 @@ body {
   border-radius: 100vh;
   text-decoration: none;
 }
+
+dl {
+  font-size: small;
+}
+img {
+  width: 120px;
+  height: auto;
+}
+
+// .works dl {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .works dt {
+//   width: 20%;
+// }
+
+// .works dd {
+//   width: 80%;
+// }
+
