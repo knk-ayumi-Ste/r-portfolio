@@ -1,3 +1,12 @@
+/*
+目次
+・カラーなどの定義
+・book全体について
+・pageについて
+・ページ全体について
+*/
+
+/* カラーなどの定義 */
 @p_w: 500px; //ページwidth値
 @p_h: (@p_w * 0.75); //ページheight値
 @p_c: #fff4e1; //ページカラー
@@ -7,6 +16,7 @@
 @bg: mix(#fff, desaturate(#9ddcdc, 0%), 15%); //色を混ぜる
 @l_c: #e67a7a; //リンクカラー
 
+/* book全体について */
 .book {
   transition: opacity 0.4s 0.2s; //ふわっとする
 }
@@ -15,6 +25,7 @@
   //opacity: 0;
 }
 
+/* pageについて */
 .page {
   width: (@p_w);
   height: (@p_h);
@@ -47,6 +58,7 @@
   }
 
   .page {
+    color: #757575; //文字色
     float: none; //要素は浮動しない
     clear: none; //要素は先行する浮動要素と切り離されず、下に移動しません
     margin: 0;
@@ -148,6 +160,7 @@
   }
 }
 
+/* ページ全体について */
 html,
 body {
   background: @bg;
@@ -169,11 +182,6 @@ body {
 }
 
 // These Pages
-.page {
-  color: #757575; //文字色
-  // background: left top no-repeat; //左上から繰り返しなし　画像設定するなら必要
-  // background-size: cover; //できるだけ画面いっぱい　画像設定するなら必要
-}
 .page:nth-child(3), //.pageクラスの(n)番目の要素
 .page:nth-child(5),
 .page:nth-child(7),
@@ -197,6 +205,56 @@ body {
 .page:nth-child(9) {
 }
 .page:nth-child(10) {
+}
+
+/* about */
+.skill img{
+  width: auto;
+  height: 30px;
+}
+
+/* works */
+dl {
+  font-size: small;
+}
+img {
+  width: 120px;
+  height: auto;
+}
+
+.works dl {
+  font-size: small;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.works dt {
+  width: 20%;
+}
+
+.works dd {
+  width: 80%;
+}
+
+.linkdiv {
+  background: @l_c;
+  text-decoration: none;
+  position: fixed;
+  top: 360px;
+  display: none;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.link{
+  color: @p_c;
+  text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 // .index {
@@ -232,36 +290,29 @@ body {
 //   border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
 // }
 
-.skill img{
-  width: auto;
-  height: 30px;
-}
 
-#link {
-  color: @p_c;
-  background: @l_c;
-  border-radius: 100vh;
-  text-decoration: none;
-}
 
-dl {
-  font-size: small;
-}
-img {
-  width: 120px;
-  height: auto;
-}
-
-// .works dl {
-//   display: flex;
-//   flex-wrap: wrap;
+// .linkdiv {
+//   // border-radius: 100vh;
+//   text-decoration: none;
+//   margin: 1.5em 0;
+//   padding: 0 5px;
+//   width: 80px;
+//   height: 80px;
+//   line-height: 80px;
+//   text-align: center;
+//   font-size: 20px;
+//   font-weight: bold;
+//   border-radius: 50%;
+//   box-sizing: border-box;
 // }
-
-// .works dt {
-//   width: 20%;
+// #link:before {
+//   content: "";
+//   position: absolute;
+//   bottom: 38%;
+//   left: 7.5%;
+//   margin-left: -15px;
+//   border: 15px solid transparent;
+//   border-top: 15px solid @l_c;
+//   z-index: 0;
 // }
-
-// .works dd {
-//   width: 80%;
-// }
-
