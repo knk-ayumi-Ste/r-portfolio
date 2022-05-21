@@ -4,6 +4,8 @@
 ・book全体について
 ・pageについて
 ・ページ全体について
+・about
+・works
 */
 
 /* カラーなどの定義 */
@@ -198,8 +200,11 @@ body {
 .page:nth-child(4),
 .page:nth-child(5) {
 }
-.page:nth-child(6),
+.page:nth-child(6){
+
+}
 .page:nth-child(7) {
+  // background-image: url(./img/quiz.png);
 }
 .page:nth-child(8),
 .page:nth-child(9) {
@@ -218,8 +223,8 @@ dl {
   font-size: small;
 }
 img {
-  width: 120px;
-  height: auto;
+  width: auto;
+  height: 100px;
 }
 
 .works dl {
@@ -243,7 +248,22 @@ img {
   top: 360px;
   display: none;
   margin: 1.5em 0;
-  padding: 7px 10px;
+  padding: 27px 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.github {
+  background: @l_c;
+  text-decoration: none;
+  position: fixed;
+  top: 360px;
+  left: 150px;
+  display: none;
+  margin: 1.5em 0;
+  padding: 27px 10px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -253,66 +273,8 @@ img {
 .link{
   color: @p_c;
   text-decoration: none;
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-
-// .index {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   position: relative;
-//   padding: 30px 0 30px 33px;
-//   width: 250px;
-//   color: #333;
-//   font-size: 18px;
-//   font-weight: 700;
-//   text-decoration: none;
-// }
-// .index::before {
-//   content: '';
-//   transform: rotate(45deg);
-//   width: 8px;
-//   height: 8px;
-//   border-top: 3px solid #2b550e;
-//   border-right: 3px solid #2b550e;
-// }
-// .index::after {
-//   content: '';
-//   position: absolute;
-//   top: 50%;
-//   left: 0;
-//   transform: translateY(-50%);
-//   width: 80px;
-//   height: 80px;
-//   background-color: rgba(0 0 0 0);
-//   border: 2px solid #90be70;
-//   border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-// }
-
-
-
-// .linkdiv {
-//   // border-radius: 100vh;
-//   text-decoration: none;
-//   margin: 1.5em 0;
-//   padding: 0 5px;
-//   width: 80px;
-//   height: 80px;
-//   line-height: 80px;
-//   text-align: center;
-//   font-size: 20px;
-//   font-weight: bold;
-//   border-radius: 50%;
-//   box-sizing: border-box;
-// }
-// #link:before {
-//   content: "";
-//   position: absolute;
-//   bottom: 38%;
-//   left: 7.5%;
-//   margin-left: -15px;
-//   border: 15px solid transparent;
-//   border-top: 15px solid @l_c;
-//   z-index: 0;
-// }

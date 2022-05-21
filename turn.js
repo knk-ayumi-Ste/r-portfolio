@@ -25,15 +25,32 @@ $(window).on('load',function() { //ページを読み込んだら
 
     if (page_num == 3 || page_num == 6) {
         document.getElementById("link5").style.display ="block";
+        document.getElementById("g-link5").style.display ="block";
     } else {
         document.getElementById("link5").style.display ="none";
+        document.getElementById("g-link5").style.display ="none";
     }
     if (page_num == 5 || page_num == 8) {
         document.getElementById("link6").style.display ="block";
         document.getElementById("link7").style.display ="block";
+        document.getElementById("g-link6").style.display ="block";
+        document.getElementById("g-link7").style.display ="block";
     } else {
         document.getElementById("link6").style.display ="none";
         document.getElementById("link7").style.display ="none";
+        document.getElementById("g-link6").style.display ="none";
+        document.getElementById("g-link7").style.display ="none";
+    }
+    if (page_num == 7 || page_num == 10) {
+        document.getElementById("link8").style.display ="block";
+        document.getElementById("link9").style.display ="block";
+        document.getElementById("g-link8").style.display ="block";
+        document.getElementById("g-link9").style.display ="block";
+    } else {
+        document.getElementById("link8").style.display ="none";
+        document.getElementById("link9").style.display ="none";
+        document.getElementById("g-link8").style.display ="none";
+        document.getElementById("g-link9").style.display ="none";
     }
 
 
@@ -48,9 +65,28 @@ $(window).on('load',function() { //ページを読み込んだら
             window.location.href = document.getElementById('anchor6').href;
         } else if (e.target.id == 'link7') {
             window.location.href = document.getElementById('anchor7').href;
+        }else if (e.target.id == 'link8') {
+            window.location.href = document.getElementById('anchor8').href;
+        }else if (e.target.id == 'link9') {
+            window.location.href = document.getElementById('anchor9').href;
         }
         return true;
     });
+    $('.github').click(function(e) {
+        if (e.target.id == 'link5') {
+            window.location.href = document.getElementById('github5').href;
+        } else if (e.target.id == 'g-link6') {
+            window.location.href = document.getElementById('github6').href;
+        } else if (e.target.id == 'g-link7') {
+            window.location.href = document.getElementById('github7').href;
+        }else if (e.target.id == 'g-link8') {
+            window.location.href = document.getElementById('github8').href;
+        }else if (e.target.id == 'g-link9') {
+            window.location.href = document.getElementById('github9').href;
+        }
+        return true;
+    });
+
     $('link').click(function(e) {
         e.stopImmediatePropagation();
         alert('test');
